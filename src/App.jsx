@@ -1,207 +1,242 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  MessageSquare, Users, Settings, Bell, Search,
-  Phone, Video, LogOut, MessageCircle, UserPlus, Grid
+  Home, MessageSquare, Users, Zap, Building, Calendar, 
+  Bell, BarChart2, FileText, Bot, ChevronDown, ChevronLeft,
+  Search, RotateCcw, TrendingUp, Clock, CheckCircle2,
+  LogOut, Sparkles
 } from 'lucide-react';
 import './App.css';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('chats');
-
-  const chats = [
-    {
-      id: 1,
-      name: 'Alex Johnson',
-      preview: 'Hey, are we still on for the meeting later?',
-      time: '10:42 AM',
-      unread: 2,
-      online: true,
-      avatar: '/contact_one.png'
-    },
-    {
-      id: 2,
-      name: 'Sarah Williams',
-      preview: 'The design looks great! Just a few minor tweaks needed.',
-      time: '09:15 AM',
-      unread: 0,
-      online: false,
-      avatar: '/contact_two.png'
-    },
-    {
-      id: 3,
-      name: 'Design Team',
-      preview: 'Mike: I have uploaded the new assets.',
-      time: 'Yesterday',
-      unread: 5,
-      online: true,
-      avatar: 'https://i.pravatar.cc/150?img=32' // fallback if needed
-    }
-  ];
-
   return (
-    <div className="dashboard-container">
+    <div className="app-container">
       {/* Sidebar */}
       <aside className="sidebar">
-        <div className="brand">
-          <MessageCircle size={28} color="var(--primary-color)" />
-          StayChat
+        <div className="sidebar-header">
+          <div className="logo-icon green-glow">
+            <Building size={20} className="green-icon" />
+          </div>
+          <div className="logo-text">
+            <h2>StayChat AI</h2>
+            <p>Hotel Communication</p>
+          </div>
+          <button className="collapse-btn">
+            <ChevronLeft size={16} />
+          </button>
         </div>
-        
-        <nav className="nav-links">
-          <button className={`nav-item ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => setActiveTab('dashboard')}>
-            <Grid className="nav-icon" /> Dashboard
-          </button>
-          <button className={`nav-item ${activeTab === 'chats' ? 'active' : ''}`} onClick={() => setActiveTab('chats')}>
-            <MessageSquare className="nav-icon" /> All Chats
-          </button>
-          <button className={`nav-item ${activeTab === 'contacts' ? 'active' : ''}`} onClick={() => setActiveTab('contacts')}>
-            <Users className="nav-icon" /> Contacts
-          </button>
-          <button className={`nav-item ${activeTab === 'calls' ? 'active' : ''}`} onClick={() => setActiveTab('calls')}>
-            <Phone className="nav-icon" /> Calls
-          </button>
+
+        <nav className="nav-menu">
+          <div className="nav-item active">
+            <Home size={18} className="nav-icon" />
+            <span>Dashboard</span>
+          </div>
+          <div className="nav-item">
+            <MessageSquare size={18} className="nav-icon" />
+            <span>Chats</span>
+          </div>
+          <div className="nav-item">
+            <Users size={18} className="nav-icon" />
+            <span>Leads & Inquiries</span>
+          </div>
+          
+          <div className="spacer"></div>
+          
+          <div className="nav-item">
+            <Zap size={18} className="nav-icon" />
+            <span>Automation</span>
+            <ChevronDown size={14} className="nav-chevron" />
+          </div>
+          <div className="nav-item">
+            <Building size={18} className="nav-icon" />
+            <span>Hotel Profiles</span>
+            <ChevronDown size={14} className="nav-chevron" />
+          </div>
+          <div className="nav-item">
+            <Calendar size={18} className="nav-icon" />
+            <span>Bookings Integration</span>
+          </div>
+          <div className="nav-item">
+            <Bell size={18} className="nav-icon" />
+            <span>Notifications</span>
+          </div>
+          
+          <div className="spacer"></div>
+          
+          <div className="nav-item">
+            <BarChart2 size={18} className="nav-icon" />
+            <span>Analytics</span>
+          </div>
+          <div className="nav-item">
+            <FileText size={18} className="nav-icon" />
+            <span>Audit Logs</span>
+          </div>
         </nav>
 
-        <div className="nav-links" style={{ marginTop: 'auto', flex: 0 }}>
-          <button className="nav-item">
-            <Settings className="nav-icon" /> Settings
-          </button>
-          <button className="nav-item">
-            <LogOut className="nav-icon" /> Logout
+        <div className="sidebar-footer">
+          <button className="logout-btn">
+            <LogOut size={16} />
+            <span>Logout</span>
           </button>
         </div>
       </aside>
 
-      {/* Main Area */}
+      {/* Main Content Area */}
       <main className="main-content">
-        {/* Header */}
-        <header className="header">
-          <div className="greeting">
-            <h1>Good morning, Sweety! 👋</h1>
-            <p>You have 7 new messages today.</p>
+        <header className="top-header">
+          <div className="header-left">
+            <div className="hotel-selector">
+              <div className="hotel-info">
+                <h3>HOTEL SANIDHYAM</h3>
+                <p>Bengali Tola, Varanasi</p>
+              </div>
+              <ChevronDown size={16} className="text-secondary" />
+            </div>
           </div>
-          
-          <div className="header-actions">
-            <div className="search-bar">
-              <Search size={18} color="var(--text-secondary)" />
-              <input type="text" placeholder="Search chats, contacts..." />
+
+          <div className="header-right">
+            <div className="search-box">
+              <Search size={16} className="search-icon text-secondary" />
+              <input type="text" placeholder="Search hotels, guests, or mess" />
             </div>
             
             <button className="icon-btn">
-              <Bell size={20} />
-              <span className="notification-badge"></span>
+              <RotateCcw size={18} />
             </button>
             
-            <img src="/user_avatar.png" alt="Sweety Profile" className="profile-avatar" />
+            <button className="icon-btn has-badge">
+              <Bell size={18} />
+              <span className="badge">3</span>
+            </button>
+
+            <div className="user-profile">
+              <div className="avatar">JD</div>
+              <div className="user-info">
+                <span className="user-name">John Doe</span>
+                <span className="user-role">Manager</span>
+              </div>
+              <ChevronDown size={16} className="text-secondary" />
+            </div>
           </div>
         </header>
 
-        {/* Content Grid */}
-        <div className="dashboard-grid">
-          
-          {/* Left Column */}
-          <div className="column-left">
-            <div className="card">
-              <div className="card-header">
-                <h2 className="card-title">Recent Conversations</h2>
-                <button className="see-all">See All</button>
+        <div className="dashboard-content">
+          <div className="welcome-section">
+            <h1>Welcome back, <span className="highlight-text">admin</span></h1>
+            <p>Here's what's happening with your hotels today.</p>
+          </div>
+
+          <div className="stats-grid">
+            <div className="stat-card">
+              <div className="stat-icon-wrapper">
+                <Calendar size={20} className="purple-icon" />
               </div>
-              
-              <div className="chat-list">
-                {chats.map((chat) => (
-                  <div className="chat-item" key={chat.id}>
-                    <div className="chat-avatar-wrapper">
-                      <img src={chat.avatar} alt={chat.name} className="chat-avatar" 
-                           onError={(e) => { e.target.src = 'https://i.pravatar.cc/150?u=' + chat.id }} />
-                      <span className={`status-dot ${chat.online ? 'online' : 'offline'}`}></span>
-                    </div>
-                    
-                    <div className="chat-details">
-                      <div className="chat-name">{chat.name}</div>
-                      <div className="chat-preview">{chat.preview}</div>
-                    </div>
-                    
-                    <div className="chat-meta">
-                      <span className="chat-time">{chat.time}</span>
-                      {chat.unread > 0 && <span className="unread-badge">{chat.unread}</span>}
-                    </div>
-                  </div>
-                ))}
+              <div className="stat-label">Total Bookings</div>
+              <div className="stat-value">1,249</div>
+              <div className="stat-trend positive">+12.5% from last month</div>
+            </div>
+
+            <div className="stat-card">
+              <div className="stat-icon-wrapper">
+                <MessageSquare size={20} className="purple-icon" />
               </div>
+              <div className="stat-label">Response Rate</div>
+              <div className="stat-value">98.4%</div>
+              <div className="stat-trend positive">+2.1% improvement</div>
+            </div>
+
+            <div className="stat-card">
+              <div className="stat-icon-wrapper">
+                <Bot size={20} className="purple-icon" />
+              </div>
+              <div className="stat-label">AI Chats Active</div>
+              <div className="stat-value">47</div>
+              <div className="stat-trend neutral">Currently handled by AI</div>
+            </div>
+
+            <div className="stat-card">
+              <div className="stat-icon-wrapper">
+                <TrendingUp size={20} className="purple-icon" />
+              </div>
+              <div className="stat-label">Revenue Growth</div>
+              <div className="stat-value">₹24.8K</div>
+              <div className="stat-trend positive">+18.2% this quarter</div>
             </div>
           </div>
 
-          {/* Right Column */}
-          <div className="column-right">
-            
-            <div className="card" style={{ marginBottom: '24px' }}>
-              <div className="card-header" style={{ marginBottom: '16px' }}>
-                <h2 className="card-title">Quick Actions</h2>
+          <div className="content-grid">
+            {/* Left Column */}
+            <div className="ai-assistant-panel">
+              <div className="panel-header">
+                <div className="ai-title">
+                  <div className="ai-icon-mini">
+                    <Bot size={16} />
+                  </div>
+                  <h2>AI Assistant</h2>
+                  <span className="tag">ACTIVE & LEARNING</span>
+                </div>
+                <p>Real-time intelligence generated by StayChat AI across all hotel operations.</p>
               </div>
-              
-              <div className="quick-actions-grid">
-                <div className="action-card">
-                  <div className="action-icon blue">
-                    <MessageSquare size={20} />
-                  </div>
-                  <span className="action-title">New Chat</span>
+
+              <div className="ai-logs">
+                <div className="log-item">
+                  <p>"Upsold breakfast to Room 305"</p>
                 </div>
-                
-                <div className="action-card">
-                  <div className="action-icon green">
-                    <UserPlus size={20} />
-                  </div>
-                  <span className="action-title">Add Contact</span>
+                <div className="log-item">
+                  <p>"Created maintenance ticket #405"</p>
                 </div>
-                
-                <div className="action-card">
-                  <div className="action-icon purple">
-                    <Users size={20} />
-                  </div>
-                  <span className="action-title">New Group</span>
-                </div>
-                
-                <div className="action-card">
-                  <div className="action-icon orange">
-                    <Video size={20} />
-                  </div>
-                  <span className="action-title">Start Meeting</span>
+                <div className="log-item">
+                  <p>"Auto-replied to late check-out request"</p>
                 </div>
               </div>
             </div>
 
-            <div className="card">
-              <div className="card-header" style={{ marginBottom: '16px' }}>
-                <h2 className="card-title">Updates</h2>
-              </div>
-              
-              <div className="updates-list">
-                <div className="update-item">
-                  <div className="update-icon">
-                    <Users size={18} />
+            {/* Right Column */}
+            <div className="quick-stats-panel">
+              <h2>Quick Stats</h2>
+              <div className="stats-list">
+                <div className="list-stat-item">
+                  <div className="list-stat-left">
+                    <Clock size={16} className="text-secondary" />
+                    <span>Avg. Response Time</span>
                   </div>
-                  <div className="update-content">
-                    <h4>Design Team</h4>
-                    <p>Meeting scheduled at 2:00 PM</p>
+                  <div className="list-stat-right">
+                    <span className="trend positive">-15%</span>
                   </div>
+                  <div className="list-stat-value">1.2s</div>
                 </div>
-                
-                <div className="update-item">
-                  <div className="update-icon">
-                    <Bell size={18} />
+
+                <div className="list-stat-item">
+                  <div className="list-stat-left">
+                    <CheckCircle2 size={16} className="text-secondary" />
+                    <span>Guest Satisfaction</span>
                   </div>
-                  <div className="update-content">
-                    <h4>System Update</h4>
-                    <p>New features available in v2.1</p>
+                  <div className="list-stat-right">
+                    <span className="trend positive">+8%</span>
                   </div>
+                  <div className="list-stat-value">4.9/5.0</div>
+                </div>
+
+                <div className="list-stat-item">
+                  <div className="list-stat-left">
+                    <Bot size={16} className="text-secondary" />
+                    <span>Resolved by AI</span>
+                  </div>
+                  <div className="list-stat-right">
+                    <span className="trend positive">+12%</span>
+                  </div>
+                  <div className="list-stat-value">85%</div>
                 </div>
               </div>
             </div>
-
           </div>
-          
         </div>
       </main>
+
+      {/* Floating Action Button */}
+      <button className="fab-ai">
+        <Sparkles size={18} />
+        <span>AI Assistant</span>
+      </button>
     </div>
   );
 }

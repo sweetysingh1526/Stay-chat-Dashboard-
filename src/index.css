@@ -1,20 +1,21 @@
 :root {
-  --primary-color: #0000cc;
-  --primary-hover: #000088;
-  --bg-color: #e6f2ff;
-  --surface-color: #ffffff;
-  --text-primary: #000000;
-  --text-secondary: #333333;
-  --border-color: #000000;
-  --success-color: green;
-  --notification-color: red;
-  --border-radius-lg: 4px;
-  --border-radius-md: 4px;
-  --border-radius-sm: 4px;
-  --shadow-sm: 2px 2px 5px grey;
-  --shadow-md: 4px 4px 8px grey;
-  --shadow-lg: 5px 5px 10px grey;
-  font-family: "Times New Roman", Times, serif;
+  --primary-color: #c026d3;
+  --primary-hover: #d946ef;
+  --bg-color: #0b0e14;
+  --surface-color: #13151b;
+  --surface-light: #1c1f26;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --border-color: #1f2937;
+  --success-color: #22c55e;
+  --danger-color: #ef4444;
+  --border-radius-lg: 12px;
+  --border-radius-md: 8px;
+  --border-radius-sm: 6px;
+
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
 }
 
 * {
@@ -40,6 +41,7 @@ button {
   background: none;
   cursor: pointer;
   font-family: inherit;
+  color: inherit;
 }
 
 /* Scrollbar styling */
@@ -47,13 +49,16 @@ button {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #d1d5db; 
+  background: #374151;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af; 
+  background: #4b5563;
 }
