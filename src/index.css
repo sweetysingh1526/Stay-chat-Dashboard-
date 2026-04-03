@@ -1,0 +1,59 @@
+:root {
+  --primary-color: #0000cc;
+  --primary-hover: #000088;
+  --bg-color: #e6f2ff;
+  --surface-color: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --border-color: #000000;
+  --success-color: green;
+  --notification-color: red;
+  --border-radius-lg: 4px;
+  --border-radius-md: 4px;
+  --border-radius-sm: 4px;
+  --shadow-sm: 2px 2px 5px grey;
+  --shadow-md: 4px 4px 8px grey;
+  --shadow-lg: 5px 5px 10px grey;
+  font-family: "Times New Roman", Times, serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af; 
+}
